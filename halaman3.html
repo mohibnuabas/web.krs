@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi KRS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9; /* Latar belakang halaman berwarna hijau muda */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            box-sizing: border-box;
+            height: 80vh;
+            overflow-y: auto;
+            display: none; /* Menyembunyikan kontainer secara default */
+        }
+
+        .active {
+            display: block !important; /* Menampilkan kontainer yang aktif */
+        }
+
+        .header {
+            background-color: #4CAF50; /* Latar belakang hijau */
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            text-align: center;
+            font-size: 28px;
+            margin: -20px -20px 20px -20px; /* Mengatur margin untuk membuat latar belakang hijau lebih besar dan mendekati bagian atas */
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        .button-group {
+            text-align: right;
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Warna hijau pokok */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button-group button:hover {
+            background-color: #45a049; /* Warna hijau sedikit lebih gelap untuk hover */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Halaman Formulir 1 -->
+<div class="container active" id="form1Container">
+    <div class="header">Formulir Pengisian Data Orang Tua / Wali</div>
+    <form id="form1">
+        <div class="input-group">
+            <label for="name">Nama Ibu</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="input-group">
+            <label for="name">NIK Ibu</label>
+            <input type="text" id="nikibu" name="nikibu" required>
+        </div>
+        <div class="input-group">
+            <label for="name">Nama Ayah</label>
+            <input type="text" id="namaayah" name="namaayah" required>
+        </div>
+        <div class="input-group">
+            <label for="name">NIK Ayah</label>
+            <input type="text" id="nikayah" name="nikayah" required>
+        </div>
+        <div class="input-group">
+            <label for="name">Nama Wali</label>
+            <input type="text" id="namawali" name="namawali" required>
+        </div>
+        <div class="input-group">
+            <label for="name">NIK Wali</label>
+            <input type="text" id="nikwali" name="nikwali" required>
+        </div>
+        <style>
+            .button-green {
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 16px;
+                color: white;
+                background-color: #28a745;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+    
+            .button-green:hover {
+                background-color: #218838;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+        </h1>
+        <br
+        <a href="login.html" class="button-green">Sebelumnya</a>
+        <div class="button-group">
+            <button type="button" onclick="showFormPage(2)">Selanjutnya</button>
+        </div>
+        
+        
+    </form>
+</div>
+
+<!-- Halaman Formulir 2 -->
+<div class="container" id="form2Container">
+    <div class="header">Aplikasi KRS</div>
+    <form id="form2">
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="button-group">
+            <button type="button" onclick="showFormPage(1)">Sebelumnya</button>
+            <button type="button" onclick="showFormPage(3)">Selanjutnya</button>
+        </div>
+    </form>
+</div>
+
+<!-- Halaman Formulir 3 -->
+<div class="container" id="form3Container">
+    <div class="header">Formulir Pengisian Data</div>
+    <form id="form3">
+        <div class="input-group">
+            <label for="phone">Nomor Telepon</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="button-group">
+            <button type="button" onclick="showFormPage(2)">Sebelumnya</button>
+            <button type="submit">Kirim</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    let currentPage = 1;
+
+    function showFormPage(pageNumber) {
+        document.querySelectorAll('.container').forEach(container => {
+            container.classList.remove('active');
+        });
+        document.getElementById(`form${pageNumber}Container`).classList.add('active');
+        currentPage = pageNumber;
+    }
+
+    // Menampilkan halaman pertama secara default
+    showFormPage(currentPage);
+</script>
+
+</body>
+</html>
